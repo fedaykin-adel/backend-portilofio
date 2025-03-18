@@ -20,7 +20,7 @@ dotenv.config();
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
-      synchronize: process.env.NODE_ENV === 'dev', // Apenas em dev para evitar perda de dados
+      synchronize: process.env.NODE_ENV === 'dev',
       logging: process.env.NODE_ENV === 'devx',
     }),
     AbilitiesModule,
