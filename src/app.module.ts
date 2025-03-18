@@ -22,6 +22,9 @@ dotenv.config();
       autoLoadEntities: true,
       synchronize: process.env.NODE_ENV === 'dev',
       logging: process.env.NODE_ENV === 'devx',
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     AbilitiesModule,
     ConfigModule,
