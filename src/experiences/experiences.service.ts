@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Expirience } from './entities/expirience.entity';
-import { Repository } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
+
+import { EXPERIENCE_REPOSITORY } from './experience.constants';
+import { IExperienceRepository } from './expiriences.interface';
 
 @Injectable()
 export class ExperiencesService {
     constructor(
-        @InjectRepository(Expirience) private readonly experienceRepository:Repository<Expirience>,
+        @Inject(EXPERIENCE_REPOSITORY) private readonly experienceRepository:IExperienceRepository,
     ){}
     async findAll(){
-        return await this.experienceRepository.find({relations:['skills']})
+        return this.experienceRepository.findAll();
     }
 }
