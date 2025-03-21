@@ -15,11 +15,7 @@ dotenv.config();
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(process.env.POSTGRES_PORT, 10),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
+      url: process.env.DATABASE_URL, // <-- apenas isto é suficiente!
       autoLoadEntities: true,
       synchronize: process.env.NODE_ENV === 'dev',
       logging: process.env.NODE_ENV === 'devx',
