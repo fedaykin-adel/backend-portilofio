@@ -8,6 +8,7 @@ import { ProjectsModule } from './projects/projects.module';
 import { EducationModule } from './education/education.module';
 import * as dotenv from 'dotenv';
 import { StorageModule } from './storage/storage.module';
+import { AppController } from './app.controler';
 dotenv.config();
 
 @Module({
@@ -32,6 +33,7 @@ dotenv.config();
     ProjectsModule,
     EducationModule,
     StorageModule
-  ]
+  ],
+  controllers:[AppController]
 })
 export class AppModule {}

@@ -6,9 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   dotenv.config();
   const app = await NestFactory.create(AppModule);
-  app.use('/', (req,resp)=>{
-    return "ola mundo"
-  })
+
   app.useGlobalPipes(
     new ValidationPipe({
       errorHttpStatusCode: 422,
